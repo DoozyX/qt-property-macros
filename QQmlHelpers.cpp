@@ -1,10 +1,10 @@
 
+#include "QQmlAutoPropertyHelpers.h"
+#include "QQmlConstRefPropertyHelpers.h"
 #include "QQmlEnumClassHelper.h"
 #include "QQmlListPropertyHelper.h"
-#include "QQmlVarPropertyHelpers.h"
 #include "QQmlPtrPropertyHelpers.h"
-#include "QQmlConstRefPropertyHelpers.h"
-#include "QQmlAutoPropertyHelpers.h"
+#include "QQmlVarPropertyHelpers.h"
 
 // TODO : rewrite this doc
 
@@ -15,7 +15,6 @@
     by avoiding manual code duplication, often leading to heavy copy-and-paste,
     which is largely error-prone and not productive at all.
 */
-
 
 /*!
     \def QML_WRITABLE_PROPERTY(type, name)
@@ -37,7 +36,6 @@
     \b Note : Any change from either C++ or QML side will trigger the notification.
 */
 
-
 /*!
     \def QML_READONLY_PROPERTY(type, name)
     \ingroup QT_QML_HELPERS
@@ -58,7 +56,6 @@
     \b Note : Any change from C++ side will trigger the notification to QML.
 */
 
-
 /*!
     \def QML_CONSTANT_PROPERTY(type, name)
     \ingroup QT_QML_HELPERS
@@ -76,7 +73,6 @@
 
     \b Note : There is no change notifier because value is constant.
 */
-
 
 /*!
     \def QML_ENUM_CLASS(name, ...)
