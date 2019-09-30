@@ -1,6 +1,3 @@
-
-# Qt super-macros
-
 QT += core qml
 
 INCLUDEPATH += $$PWD
