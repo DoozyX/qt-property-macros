@@ -14,13 +14,11 @@
  public:                                                                                   \
   type* MAKE_GETTER_NAME(name)(void) const { return m_##name; }                            \
  public Q_SLOTS:                                                                           \
-  bool set_##name(type* name) {                                                            \
-    bool ret = false;                                                                      \
-    if ((ret = (m_##name != name))) {                                                      \
+  void set_##name(type* name) {                                                            \
+    if (m_##name != name) {                                                                \
       m_##name = name;                                                                     \
       emit name##Changed(m_##name);                                                        \
     }                                                                                      \
-    return ret;                                                                            \
   }                                                                                        \
  Q_SIGNALS:                                                                                \
   void name##Changed(type* name);                                                          \
@@ -35,13 +33,11 @@
                                                                           \
  public:                                                                  \
   type* MAKE_GETTER_NAME(name)(void) const { return m_##name; }           \
-  bool update_##name(type* name) {                                        \
-    bool ret = false;                                                     \
-    if ((ret = (m_##name != name))) {                                     \
+  void update_##name(type* name) {                                        \
+    if (m_##name != name) {                                               \
       m_##name = name;                                                    \
       emit name##Changed(m_##name);                                       \
     }                                                                     \
-    return ret;                                                           \
   }                                                                       \
  Q_SIGNALS:                                                               \
   void name##Changed(type* name);                                         \

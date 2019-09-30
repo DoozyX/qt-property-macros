@@ -11,13 +11,10 @@
   CheapestType<type>::type_def MAKE_GETTER_NAME(name)(void) const { return m_##name; }
 
 #define QML_AUTO_SETTER(type, name, prefix)              \
-  bool prefix##name(CheapestType<type>::type_def name) { \
+  void prefix##name(CheapestType<type>::type_def name) { \
     if (m_##name != name) {                              \
       m_##name = name;                                   \
       emit name##Changed();                              \
-      return true;                                       \
-    } else {                                             \
-      return false;                                      \
     }                                                    \
   }
 
