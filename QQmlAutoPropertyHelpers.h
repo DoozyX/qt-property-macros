@@ -1,5 +1,4 @@
-#ifndef QQMLAUTOPROPERTYHELPERS_H
-#define QQMLAUTOPROPERTYHELPERS_H
+#pragma once
 
 #include <QObject>
 
@@ -74,5 +73,3 @@ class _Test_QmlAutoProperty_ : public QObject {
   QML_CONSTANT_AUTO_PROPERTY(QString, var8)
   QML_CONSTANT_AUTO_PROPERTY(QObject*, var9)
 };
-
-#endif  // QQMLAUTOPROPERTYHELPERS_H

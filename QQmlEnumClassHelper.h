@@ -1,5 +1,4 @@
-#ifndef QQMLENUMCLASS
-#define QQMLENUMCLASS
+#pragma once
 
 #include <qqml.h>
 #include <QMetaEnum>
@@ -35,5 +34,3 @@
   Q_DECLARE_METATYPE(NAME::Type)
 
 QML_ENUM_CLASS(_Test_QmlEnumClass_)  // NOTE : to avoid "no suitable class found" MOC note
-
-#endif  // QQMLENUMCLASS

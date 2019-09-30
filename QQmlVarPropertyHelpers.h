@@ -1,5 +1,4 @@
-#ifndef QQMLVARPROPERTYHELPERS
-#define QQMLVARPROPERTYHELPERS
+#pragma once
 
 #include <QObject>
 
@@ -61,5 +60,3 @@ class _QmlVarProperty_ : public QObject {
   QML_READONLY_VAR_PROPERTY(bool, var2)
   QML_CONSTANT_VAR_PROPERTY(QString, var3)
 };
-
-#endif  // QQMLVARPROPERTYHELPERS

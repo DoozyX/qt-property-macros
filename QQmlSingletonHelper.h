@@ -1,5 +1,4 @@
-#ifndef QQMLSINGLETONHELPER_H
-#define QQMLSINGLETONHELPER_H
+#pragma once
 
 #include <qqml.h>
 #include <QJSEngine>
@@ -27,5 +26,3 @@ class _test_QmlSingleton_ : public QObject {
   Q_OBJECT
   QML_SINGLETON_IMPL(_test_QmlSingleton_)
 };
-
-#endif  // QQMLSINGLETONHELPER_H

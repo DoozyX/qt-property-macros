@@ -1,5 +1,4 @@
-#ifndef QQMLCONSTREFPROPERTYHELPERS
-#define QQMLCONSTREFPROPERTYHELPERS
+#pragma once
 
 #include <QObject>
 
@@ -61,5 +60,3 @@ class _QmlCstRefProperty_ : public QObject {
   QML_READONLY_CSTREF_PROPERTY(bool, var2)
   QML_CONSTANT_CSTREF_PROPERTY(QString, var3)
 };
-
-#endif  // QQMLCONSTREFPROPERTYHELPERS

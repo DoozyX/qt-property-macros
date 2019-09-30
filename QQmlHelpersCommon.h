@@ -1,5 +1,4 @@
-#ifndef QQMLHELPERSCOMMON_H
-#define QQMLHELPERSCOMMON_H
+#pragma once
 
 #include <QtGlobal>
 
@@ -65,5 +64,3 @@ struct CheapestType<T*> {
 #else
 #define MAKE_GETTER_NAME(name) get_##name
 #endif
-
-#endif  // QQMLHELPERSCOMMON_H

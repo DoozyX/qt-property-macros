@@ -1,5 +1,4 @@
-#ifndef QQMLLISTPROPERTYHELPER
-#define QQMLLISTPROPERTYHELPER
+#pragma once
 
 #include <QQmlListProperty>
 #include <QVector>
@@ -61,5 +60,3 @@ class QQmlSmartListWrapper : public QQmlListProperty<ObjType> {
                                                                                             \
  private:                                                                                   \
   QQmlSmartListWrapper<TYPE> m_##NAME;
-
-#endif  // QQMLLISTPROPERTYHELPER
