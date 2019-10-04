@@ -45,6 +45,15 @@
   AUTO_GETTER(type, name)                                    \
  private:
 
+#define W_AUTO_PROPERTY_DEFAULT(type, name, defaultValue)                                 \
+  Q_PROPERTY(type name READ MAKE_GETTER_NAME(name) WRITE set_##name NOTIFY name##Changed) \
+                                                                                          \
+  MEMBER_DEFAULT(type, name, defaultValue)                                                \
+  AUTO_GETTER(type, name)                                                                 \
+  AUTO_SETTER(type, name)                                                                 \
+  NOTIFIER(name)                                                                          \
+ private:
+
 // NOTE : test class for all cases
 
 class _Test_QmlAutoProperty_ : public QObject {
@@ -61,4 +70,6 @@ class _Test_QmlAutoProperty_ : public QObject {
   C_AUTO_PROPERTY(bool, var7)
   C_AUTO_PROPERTY(QString, var8)
   C_AUTO_PROPERTY(QObject*, var9)
+
+  W_AUTO_PROPERTY_DEFAULT(bool, var10, true)
 };

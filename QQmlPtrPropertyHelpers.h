@@ -45,10 +45,22 @@
   PTR_GETTER(type, name)                                      \
  private:
 
+#define W_PTR_PROPERTY_DEFAULT(type, name, defaultValue)                                   \
+ protected:                                                                                \
+  Q_PROPERTY(type* name READ MAKE_GETTER_NAME(name) WRITE set_##name NOTIFY name##Changed) \
+                                                                                           \
+  MEMBER_DEFAULT(type*, name, defaultValue)                                                \
+  PTR_GETTER(type, name)                                                                   \
+  PTR_SETTER(type, name)                                                                   \
+  NOTIFIER(name)                                                                           \
+ private:
+
 class _QmlPtrProperty_ : public QObject {
   Q_OBJECT
 
   W_PTR_PROPERTY(int, var1)
   R_PTR_PROPERTY(bool, var2)
   C_PTR_PROPERTY(QString, var3)
+
+  W_PTR_PROPERTY_DEFAULT(QString, var4, nullptr)
 };
