@@ -67,7 +67,7 @@ struct CheapestType<T*> {
 
 #define MEMBER(type, name) \
  private:                  \
-  type m_##name;
+  type m_##name{};
 
 #define NOTIFIER(name) \
  Q_SIGNALS:            \
