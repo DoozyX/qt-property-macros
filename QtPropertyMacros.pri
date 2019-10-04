@@ -3,12 +3,12 @@ QT += core qml
 INCLUDEPATH += $$PWD
 
 HEADERS += \
-    $$PWD/QQmlVarPropertyHelpers.h \
+    $$PWD/QQmlAutoPropertyHelpers.h \
+    $$PWD/QQmlConstRefPropertyHelpers.h \
+    $$PWD/QQmlPropertyHelpers.h \
     $$PWD/QQmlPtrPropertyHelpers.h \
     $$PWD/QQmlEnumClassHelper.h \
-    $$PWD/QQmlConstRefPropertyHelpers.h \
     $$PWD/QQmlListPropertyHelper.h \
-    $$PWD/QQmlAutoPropertyHelpers.h \
     $$PWD/QQmlHelpersCommon.h \
     $$PWD/QQmlSingletonHelper.h
 

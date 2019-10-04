@@ -4,59 +4,47 @@
 
 #include "QQmlHelpersCommon.h"
 
-#define QML_WRITABLE_CSTREF_PROPERTY(type, name)                                          \
+#define CONST_SETTER(type, name)      \
+ public:                              \
+  void set_##name(const type& name) { \
+    if (m_##name != name) {           \
+      m_##name = name;                \
+      emit name##Changed();           \
+    }                                 \
+  }
+
+#define CONST_GETTER(type, name) \
+ public:                         \
+  const type& MAKE_GETTER_NAME(name)(void) const { return m_##name; }
+
+#define W_CREF_PROPERTY(type, name)                                                       \
  protected:                                                                               \
   Q_PROPERTY(type name READ MAKE_GETTER_NAME(name) WRITE set_##name NOTIFY name##Changed) \
  private:                                                                                 \
-  type m_##name;                                                                          \
-                                                                                          \
- public:                                                                                  \
-  const type& MAKE_GETTER_NAME(name)(void) const { return m_##name; }                     \
- public Q_SLOTS:                                                                          \
-  void set_##name(const type& name) {                                                     \
-    if (m_##name != name) {                                                               \
-      m_##name = name;                                                                    \
-      emit name##Changed(m_##name);                                                       \
-    }                                                                                     \
-  }                                                                                       \
- Q_SIGNALS:                                                                               \
-  void name##Changed(const type& name);                                                   \
-                                                                                          \
- private:
+  MEMBER(type, name)                                                                      \
+  CONST_GETTER(type, name)                                                                \
+  CONST_SETTER(type, name)                                                                \
+  NOTIFIER(name)
 
-#define QML_READONLY_CSTREF_PROPERTY(type, name)                         \
+#define R_CREF_PROPERTY(type, name)                                      \
  protected:                                                              \
   Q_PROPERTY(type name READ MAKE_GETTER_NAME(name) NOTIFY name##Changed) \
- private:                                                                \
-  type m_##name;                                                         \
-                                                                         \
- public:                                                                 \
-  const type& MAKE_GETTER_NAME(name)(void) const { return m_##name; }    \
-  void update_##name(const type& name) {                                 \
-    if (m_##name != name) {                                              \
-      m_##name = name;                                                   \
-      emit name##Changed(m_##name);                                      \
-    }                                                                    \
-  }                                                                      \
- Q_SIGNALS:                                                              \
-  void name##Changed(const type& name);                                  \
-                                                                         \
+  MEMBER(type, name)                                                     \
+  CONST_GETTER(type, name)                                               \
+  CONST_SETTER(type, name)                                               \
+  NOTIFIER(name)                                                         \
  private:
 
-#define QML_CONSTANT_CSTREF_PROPERTY(type, name)                      \
- protected:                                                           \
-  Q_PROPERTY(type name READ MAKE_GETTER_NAME(name) CONSTANT)          \
- private:                                                             \
-  type m_##name;                                                      \
-                                                                      \
- public:                                                              \
-  const type& MAKE_GETTER_NAME(name)(void) const { return m_##name; } \
-                                                                      \
+#define C_CREF_PROPERTY(type, name)                          \
+ protected:                                                  \
+  Q_PROPERTY(type name READ MAKE_GETTER_NAME(name) CONSTANT) \
+  MEMBER(type, name)                                         \
+  CONST_GETTER(type, name)                                   \
  private:
 
-class _QmlCstRefProperty_ : public QObject {
+class Test : public QObject {
   Q_OBJECT
-  QML_WRITABLE_CSTREF_PROPERTY(int, var1)
-  QML_READONLY_CSTREF_PROPERTY(bool, var2)
-  QML_CONSTANT_CSTREF_PROPERTY(QString, var3)
+  W_CREF_PROPERTY(int, var1)
+  R_CREF_PROPERTY(bool, var2)
+  C_CREF_PROPERTY(QString, var3)
 };

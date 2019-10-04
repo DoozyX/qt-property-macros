@@ -52,7 +52,7 @@ class QQmlSmartListWrapper : public QQmlListProperty<ObjType> {
   CppListType m_items;
 };
 
-#define QML_LIST_PROPERTY(TYPE, NAME)                                                       \
+#define LIST_PROPERTY(TYPE, NAME)                                                           \
  private:                                                                                   \
   Q_PROPERTY(QQmlListProperty<TYPE> NAME READ MAKE_GETTER_NAME(NAME) CONSTANT)              \
  public:                                                                                    \

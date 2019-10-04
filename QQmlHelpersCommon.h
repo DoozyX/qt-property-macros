@@ -64,3 +64,11 @@ struct CheapestType<T*> {
 #else
 #define MAKE_GETTER_NAME(name) get_##name
 #endif
+
+#define MEMBER(type, name) \
+ private:                  \
+  type m_##name;
+
+#define NOTIFIER(name) \
+ Q_SIGNALS:            \
+  void name##Changed(void);
