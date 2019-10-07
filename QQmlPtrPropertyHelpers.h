@@ -87,6 +87,26 @@
   NOTIFIER(name)                                                        \
  private:
 
+#define SHARED_PTR_PROPERTY(type, name)                       \
+ protected:                                                   \
+  Q_PROPERTY(type* name READ get_##name NOTIFY name##Changed) \
+                                                              \
+  MEMBER(std::shared_ptr<type>, name)                         \
+  SMART_PTR_GETTER(type, name)                                \
+  SMART_PTR_SETTER(std::unique_ptr<type>&, name)              \
+  NOTIFIER(name)                                              \
+ private:
+
+#define SHARED_PTR_PROPERTY_INIT(type, name)                            \
+ protected:                                                             \
+  Q_PROPERTY(type* name READ get_##name NOTIFY name##Changed)           \
+                                                                        \
+  MEMBER_DEFAULT(std::shared_ptr<type>, name, std::make_shared<type>()) \
+  SMART_PTR_GETTER(type, name)                                          \
+  SMART_PTR_SETTER(std::shared_ptr<type>, name)                         \
+  NOTIFIER(name)                                                        \
+ private:
+
 class _QmlPtrProperty_ : public QObject {
   Q_OBJECT
 
@@ -98,4 +118,7 @@ class _QmlPtrProperty_ : public QObject {
 
   UNIQUE_PTR_PROPERTY(QString, test2)
   UNIQUE_PTR_PROPERTY_INIT(QString, test3)
+
+  SHARED_PTR_PROPERTY(QString, test4)
+  SHARED_PTR_PROPERTY_INIT(QString, test5)
 };
