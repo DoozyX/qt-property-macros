@@ -1,14 +1,22 @@
-How can I use this ?  
 
-Well, license here is pretty "super-open", not even copy-left or copy-right, 
-basically its close to the WTFPL, just use it as you want, 
-as it's the most practical to you : 
+The MIT License (MIT)
 
-* if you want to use it as GIT submodule and compile it in your app, do it ; 
-* if you prefer separate project as a shared library, do it ; 
-* if you need to modify the project to be able to integrate in you app (opensource or not), do it ; 
-* if you want to share you work on the library, thanks a lot, but if you don't, no problem ;
-* if you think about some weird case I didn't talk about, well, do whatever you want, I don't need to know about it ;
-* if you like it so much you want to spread the word, thank you, you're welcome.
+Copyright (c) 2019 
 
-Enjoy !
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
