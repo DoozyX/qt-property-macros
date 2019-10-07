@@ -1,6 +1,7 @@
 #pragma once
 
 #include <QObject>
+#include <memory>
 
 #include "QQmlHelpersCommon.h"
 
@@ -15,6 +16,17 @@
       m_##name = name;          \
       emit name##Changed();     \
     }                           \
+  }
+
+#define SMART_PTR_GETTER(type, name) \
+ public:                             \
+  type* MAKE_GETTER_NAME(name)(void) const { return m_##name.get(); }
+
+#define SMART_PTR_SETTER(type, name) \
+ public:                             \
+  void set_##name(type name) {       \
+    m_##name = std::move(name);      \
+    emit name##Changed();            \
   }
 
 #define W_PTR_PROPERTY(type, name)                                                         \
@@ -55,12 +67,35 @@
   NOTIFIER(name)                                                                           \
  private:
 
+#define UNIQUE_PTR_PROPERTY(type, name)                       \
+ protected:                                                   \
+  Q_PROPERTY(type* name READ get_##name NOTIFY name##Changed) \
+                                                              \
+  MEMBER(std::unique_ptr<type>, name)                         \
+  SMART_PTR_GETTER(type, name)                                \
+  SMART_PTR_SETTER(std::unique_ptr<type>&, name)              \
+  NOTIFIER(name)                                              \
+ private:
+
+#define UNIQUE_PTR_PROPERTY_INIT(type, name)                            \
+ protected:                                                             \
+  Q_PROPERTY(type* name READ get_##name NOTIFY name##Changed)           \
+                                                                        \
+  MEMBER_DEFAULT(std::unique_ptr<type>, name, std::make_unique<type>()) \
+  SMART_PTR_GETTER(type, name)                                          \
+  SMART_PTR_SETTER(std::unique_ptr<type>&, name)                        \
+  NOTIFIER(name)                                                        \
+ private:
+
 class _QmlPtrProperty_ : public QObject {
   Q_OBJECT
 
   W_PTR_PROPERTY(int, var1)
   R_PTR_PROPERTY(bool, var2)
-  C_PTR_PROPERTY(QString, var3)
+  C_PTR_PROPERTY(QString, test)
 
   W_PTR_PROPERTY_DEFAULT(QString, var4, nullptr)
+
+  UNIQUE_PTR_PROPERTY(QString, test2)
+  UNIQUE_PTR_PROPERTY_INIT(QString, test3)
 };
