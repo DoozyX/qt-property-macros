@@ -3,7 +3,7 @@
 #include <QObject>
 #include <memory>
 
-#include "QQmlHelpersCommon.h"
+#include "HelpersCommon.h"
 
 #define PTR_GETTER(type, name) \
  public:                       \

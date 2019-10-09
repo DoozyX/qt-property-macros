@@ -2,7 +2,7 @@
 
 #include <QObject>
 
-#include "QQmlHelpersCommon.h"
+#include "HelpersCommon.h"
 
 #define AUTO_GETTER(type, name) \
  public:                        \

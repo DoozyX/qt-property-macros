@@ -2,7 +2,7 @@
 
 #include <QObject>
 
-#include "QQmlHelpersCommon.h"
+#include "HelpersCommon.h"
 
 #define CONST_SETTER(type, name)      \
  public:                              \
