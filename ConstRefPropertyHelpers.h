@@ -9,7 +9,7 @@
   void set_##name(const type& name) { \
     if (m_##name != name) {           \
       m_##name = name;                \
-      emit name##Changed();           \
+      Q_EMIT name##Changed();         \
     }                                 \
   }
 

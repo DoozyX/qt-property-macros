@@ -13,7 +13,7 @@
   void set_##name(CheapestType<type>::type_def name) { \
     if (m_##name != name) {                            \
       m_##name = name;                                 \
-      emit name##Changed();                            \
+      Q_EMIT name##Changed();                          \
     }                                                  \
   }
 

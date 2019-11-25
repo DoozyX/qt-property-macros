@@ -14,7 +14,7 @@
   void set_##name(type* name) { \
     if (m_##name != name) {     \
       m_##name = name;          \
-      emit name##Changed();     \
+      Q_EMIT name##Changed();   \
     }                           \
   }
 
@@ -26,7 +26,7 @@
  public:                             \
   void set_##name(type name) {       \
     m_##name = std::move(name);      \
-    emit name##Changed();            \
+    Q_EMIT name##Changed();          \
   }
 
 #define W_PTR_PROPERTY(type, name)                                                         \
