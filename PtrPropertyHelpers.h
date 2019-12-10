@@ -7,7 +7,7 @@
 
 #define PTR_GETTER(type, name) \
  public:                       \
-  type* MAKE_GETTER_NAME(name)(void) const { return m_##name; }
+  type* MAKE_GETTER_NAME(name)() const { return m_##name; }
 
 #define PTR_SETTER(type, name)  \
  public:                        \
@@ -20,7 +20,7 @@
 
 #define SMART_PTR_GETTER(type, name) \
  public:                             \
-  type* MAKE_GETTER_NAME(name)(void) const { return m_##name.get(); }
+  type* MAKE_GETTER_NAME(name)() const { return m_##name.get(); }
 
 #define SMART_PTR_SETTER(type, name) \
  public:                             \

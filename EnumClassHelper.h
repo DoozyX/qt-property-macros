@@ -23,13 +23,15 @@
       return QString::fromLatin1(staticMetaObject.enumerator(0).valueToKey(value));                                    \
     }                                                                                                                  \
     static void registerQmlModule(const char* uri, const int majorVersion, const int minorVersion, const char* name) { \
-      qmlRegisterUncreatableType<NAME>(uri, majorVersion, minorVersion, name, "Enum class, can't be instanciated !");  \
+      qmlRegisterUncreatableType<NAME>(uri, majorVersion, minorVersion, name,                                          \
+                                       QStringLiteral("Enum class, can't be instanciated !"));                         \
     }                                                                                                                  \
                                                                                                                        \
    private:                                                                                                            \
-    explicit NAME(void) {}                                                                                             \
+    explicit NAME() {}                                                                                                 \
     NAME(const NAME&);                                                                                                 \
     NAME& operator=(const NAME&);                                                                                      \
+    ~NAME();                                                                                                           \
   };                                                                                                                   \
   Q_DECLARE_METATYPE(NAME::Type)
 

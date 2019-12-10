@@ -6,7 +6,7 @@
 
 #define AUTO_GETTER(type, name) \
  public:                        \
-  CheapestType<type>::type_def MAKE_GETTER_NAME(name)(void) const { return m_##name; }
+  CheapestType<type>::type_def MAKE_GETTER_NAME(name)() const { return m_##name; }
 
 #define AUTO_SETTER(type, name)                        \
  public:                                               \

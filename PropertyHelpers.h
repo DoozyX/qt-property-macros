@@ -6,7 +6,7 @@
 
 #define PROP_GETTER(type, name) \
  public:                        \
-  type MAKE_GETTER_NAME(name)(void) const { return m_##name; }
+  type MAKE_GETTER_NAME(name)() const { return m_##name; }
 
 #define PROP_SETTER(type, name) \
  public:                        \
@@ -59,7 +59,7 @@ class _QmlVarProperty_ : public QObject {
   Q_OBJECT
   W_PROPERTY(int, var1)
   R_PROPERTY(bool, var2)
-  C_PROPERTY(QString, var3)
+  C_PROPERTY(int, var3)
 
-  W_PROPERTY_DEFAULT(QString, var4, "test")
+  W_PROPERTY_DEFAULT(int, var4, 5)
 };

@@ -7,7 +7,7 @@
 
 #define QML_SINGLETON_IMPL(CLASS)                                                                                    \
  public:                                                                                                             \
-  static CLASS& instance(void) {                                                                                     \
+  static CLASS& instance() {                                                                                         \
     static CLASS ret;                                                                                                \
     return ret;                                                                                                      \
   }                                                                                                                  \

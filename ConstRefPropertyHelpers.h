@@ -15,7 +15,7 @@
 
 #define CONST_GETTER(type, name) \
  public:                         \
-  const type& MAKE_GETTER_NAME(name)(void) const { return m_##name; }
+  const type& MAKE_GETTER_NAME(name)() const { return m_##name; }
 
 #define W_CREF_PROPERTY(type, name)                                                       \
  protected:                                                                               \
@@ -54,9 +54,9 @@
 class Test : public QObject {
   Q_OBJECT
 
-  W_CREF_PROPERTY(int, var1)
-  R_CREF_PROPERTY(bool, var2)
+  W_CREF_PROPERTY(QString, var1)
+  R_CREF_PROPERTY(QString, var2)
   C_CREF_PROPERTY(QString, var3)
 
-  W_CREF_PROPERTY_DEFAULT(QString, var4, "test")
+  W_CREF_PROPERTY_DEFAULT(QString, var4, QStringLiteral("test"))
 };
